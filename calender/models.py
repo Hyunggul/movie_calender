@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Movie(models.Model):
-    movie_id = models.CharField(max_length=30)
-    title = models.CharField(max_length=100)
+    movie_id = models.CharField(max_length=30) #docid로 받아야함
+    title = models.CharField(max_length=100) 
     title_eng = models.CharField(max_length=200)
     prod_year = models.IntegerField()
     runtime = models.IntegerField()
@@ -21,6 +21,6 @@ class Movie(models.Model):
 class Poster(models.Model):
     movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
     posterUrl = models.CharField(max_length=200)
-    
+
     class Meta:
         db_table = 'posters'
